@@ -1,0 +1,4 @@
+xterm*faceName: "SF Mono Regular"
+xterm*faceSize: 11
+xterm*loginShell: true
+xterm*locale: de_DE.UTF-8

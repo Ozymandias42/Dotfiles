@@ -1,0 +1,28 @@
+#zsh profile. 
+#Redirects to POSIX complient general .Profile 
+#PS1="[$(tput setaf 28)zsh$(tput sgr0)]"$PS1
+#PS1="[$(tput setaf 28)zsh$(tput sgr0)]"
+autoload -U colors && colors
+#BLACK="%F{0}"
+#BLUE="%F{4}"
+#BLUE="%F{blue}"
+BLUE="%F{33}"
+BLACK="%{$fg[default]%}"
+
+PS1="["$BLUE"zsh"$BLACK"] %3~> "
+CURSHELL="zsh"
+export TERM=xterm-256color
+autoload -Uz compinit
+compinit -i
+autoload -U select-word-style
+select-word-style bash
+if [ $commands[kubectl] ]; then
+  source <(kubectl completion zsh)
+fi
+
+
+autoload _kubectl
+SAVEHIST=1
+HISTFILE=$HOME/.zsh_history
+#alias youtube-dl="bash -c youtube-dl"
+[[ -e ~/.Profile ]] && emulate sh -c 'source ~/.Profile'
