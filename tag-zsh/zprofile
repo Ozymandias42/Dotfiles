@@ -25,4 +25,4 @@ autoload _kubectl
 SAVEHIST=1
 HISTFILE=$HOME/.zsh_history
 #alias youtube-dl="bash -c youtube-dl"
-[[ -e ~/.Profile ]] && emulate sh -c 'source ~/.Profile'
+[[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
