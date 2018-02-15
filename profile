@@ -52,6 +52,4 @@ fi
 
 #export LSCOLORS=cxfxcDdCBxegedabagacad
 #export CLICOLOR=1
-#PS1='$(tput setab 39; tput setaf 231)\W$(tput setab 250)\$$(tput sgr0) '
-[[ -z $CURSHELL ]] &&  PS1="[$(tput setaf 28)bash$(tput sgr0)]"$PS1
 

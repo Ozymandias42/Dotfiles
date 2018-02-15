@@ -1,0 +1,1 @@
+PS1="[$(tput setaf 28)bash$(tput sgr0)]"$PS1

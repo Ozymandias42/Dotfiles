@@ -7,3 +7,4 @@ set nofoldenable
 set foldlevel=2
 set mouse=a
 set expandtab
+set clipboard=unnamed
