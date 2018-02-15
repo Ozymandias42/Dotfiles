@@ -1,7 +1,4 @@
-setopt complete_in_word
-#setopt single_line_zle
-setopt INC_APPEND_HISTORY
-setopt hist_ignore_all_dups
-setopt BANG_HIST
-setopt extendedglob
-#setopt AUTO_MENU
+#History settings
+HISTSIZE=1000
+SAVEHIST=$HISTSIZE
+HISTFILE=$HOME/.zsh_history

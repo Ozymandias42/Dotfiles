@@ -1,29 +1,14 @@
 #zsh profile. 
 
 autoload -U colors && colors
+TERM=xterm-256color
 
-#PS1 and Colors.
+#Set Colors.
 BLUE="%F{33}"
 BLACK="%{$fg[default]%}"
+
+#Set PS1-Prompt
 PS1="["$BLUE"zsh"$BLACK"]%n@%m %3~> "
-
-export TERM=xterm-256color
-
-autoload -Uz compinit
-compinit -i
-autoload -U select-word-style
-select-word-style bash
-
-#Auto-Completions
-if [ $commands[kubectl] ]; then
-  source <(kubectl completion zsh)
-fi
-#autoload _kubectl
-
-#History settings
-HISTSIZE=1000
-SAVEHIST=$HISTSIZE
-HISTFILE=$HOME/.zsh_history
 
 #Parsing of general .profile for all POSIX compliant shells.
 [[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
