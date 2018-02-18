@@ -3,7 +3,7 @@ setopt complete_in_word
 setopt INC_APPEND_HISTORY
 setopt hist_ignore_all_dups
 setopt BANG_HIST
-setopt extendedglob
+#setopt extendedglob
 #setopt AUTO_MENU
 
 autoload -Uz compinit

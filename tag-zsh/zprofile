@@ -7,8 +7,17 @@ TERM=xterm-256color
 BLUE="%F{33}"
 BLACK="%{$fg[default]%}"
 
+ID="%n@%m:"
+DIR="%3~"
+#CWD="%3~"
+function precmd {
+    PADS=$((${COLUMNS}-$((${#${(%)ID}}+${#${(%)DIR}}))-1))
+    PAD=${(l.PADS.. .)}
+    PS1="%B$BLUE""%n@%m%f%b$BLACK:$PAD%3~ $BLUE
+%B%#%b $BLACK" 
+}
 #Set PS1-Prompt
-PS1="["$BLUE"zsh"$BLACK"]%n@%m %3~> "
+#"["$BLUE"zsh"$BLACK"]
 
 #Parsing of general .profile for all POSIX compliant shells.
 [[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
