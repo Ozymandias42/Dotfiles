@@ -35,11 +35,11 @@ fi
 
 #Aliases for convenvience and keeping me from accidentially deleting stuff.
 alias cls=clear
-alias cp='cp -i'
-alias mv='mv -i'
+alias cp='cp -iv'
+alias mv='mv -iv'
 alias rm='rm -i'
 alias ln='ln -i'
-alias ls='ls -G'
+alias ls='ls -Ga'
 alias grep='grep --color=auto'
 
 if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
