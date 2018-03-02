@@ -3,11 +3,15 @@ setopt complete_in_word
 setopt INC_APPEND_HISTORY
 setopt hist_ignore_all_dups
 setopt BANG_HIST
-#setopt extendedglob
+setopt extended_glob
 #setopt AUTO_MENU
 
-autoload -Uz compinit
+autoload -U compinit
+if [ -f $HOME/.zcompdump  ]; then
+compinit -d $HOME/.zcompdump -i
+else
 compinit -i
+fi
 autoload -U select-word-style
 select-word-style bash
 

@@ -3,8 +3,14 @@ set number
 set tabstop=4
 set foldmethod=manual   
 set foldnestmax=10
-set nofoldenable
+"set nofoldenable
 set foldlevel=2
 set mouse=a
 set expandtab
 set clipboard=unnamed
+"Toggle Line and Wordwrapping
+set wrap
+set lbr!
+"Key-bind to copy and paste to and from macOS clipboard
+"vnoremap  <C-c> :w !pbcopy<CR><CR>
+"noremap <C-v> :r !pbpaste<CR><CR>
