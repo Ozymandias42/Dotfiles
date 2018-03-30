@@ -26,7 +26,14 @@ fi
 export PROXY_HTTP=192.168.1.5:3128
 export PROXY_HTTPS=192.168.1.5:3128
 export PROXY_FTP=192.168.1.5:3128
-export HTTP_PROXY=192.168.1.5:3128
+#export HTTP_PROXY=192.168.1.5:3128
+#export WINEPREFIX="$HOME/Wine Files"
+export WINEDEBUG="warn-all,relay-all,err-all"
+#export VISUAL=vi
+#export EDITOR=vi
+
+#Workaround to get fontsmoothing for wine. See: https://bugs.winehq.org/show_bug.cgi?id=41639
+[[ $(uname) == "Darwin" ]] && export FREETYPE_PROPERTIES="truetype:interpreter-version=35"; 
 
 #UserScript Folder on main machine to $PATH
 if [ -d $HOME/UserScripts ]; then 
@@ -41,6 +48,7 @@ alias rm='rm -i'
 alias ln='ln -i'
 alias ls='ls -Ga'
 alias grep='grep --color=auto'
+alias 'C:'='cd ~/.wine/drive_c/Program\ Files'
 
 if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
           . /opt/local/etc/profile.d/bash_completion.sh

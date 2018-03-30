@@ -8,9 +8,14 @@ set foldlevel=2
 set mouse=a
 set expandtab
 set clipboard=unnamed
+
+"Automatically watch changes
+set autoread
+colorscheme slate
+set bg=dark
 "Toggle Line and Wordwrapping
 set wrap
 set lbr!
 "Key-bind to copy and paste to and from macOS clipboard
-"vnoremap  <C-c> :w !pbcopy<CR><CR>
-"noremap <C-v> :r !pbpaste<CR><CR>
+vnoremap  <C-c> :w !pbcopy<CR><CR>
+noremap <C-p> :r !pbpaste<CR><CR>

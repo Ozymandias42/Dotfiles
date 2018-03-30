@@ -1,3 +1,4 @@
 set guifont=Monaco:h14
 set bg=dark
 colorscheme slate
+set autoread

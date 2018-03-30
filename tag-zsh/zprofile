@@ -4,20 +4,22 @@ autoload -U colors && colors
 TERM=xterm-256color
 
 #Set Colors.
-BLUE="%F{33}"
+#BLUE="%F{33}"
+BLUE="%F{blue}"
 BLACK="%{$fg[default]%}"
 GREEN="%{$fg[green]%}"
 
 ID="%n@%m:"
 DIR="%3~"
 #CWD="%3~"
-function precmd {
-     PADS=$((${COLUMNS}-$((${#${(%)ID}}+${#${(%)DIR}}))-1))
-     PAD=${(l.PADS.. .)}
-     PS1="%B$BLUE""%n@%m%f%b$BLACK:$PAD%3~ $BLUE
-%B%#%b $BLACK" 
-}
-#PS1="%B$BLUE""%n@%m%f%b$BLACK:%3~ $BLUE%B%#%b $BLACK" 
+#function precmd {
+#     PADS=$((${COLUMNS}-$((${#${(%)ID}}+${#${(%)DIR}}))-1))
+#     PAD=${(l.PADS.. .)}
+#     PS1="%B$BLUE""%n@%m%f%b$BLACK:$PAD%3~ $BLUE
+#%B%#%b $BLACK" 
+#}
+PS1="%B$BLUE""%n@%m%f%b$BLACK:%3~ 
+$BLUE%B%#%b $BLACK" 
 
 #Set PS1-Prompt
 #"["$BLUE"zsh"$BLACK"]

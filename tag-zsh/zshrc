@@ -4,7 +4,7 @@ setopt INC_APPEND_HISTORY
 setopt hist_ignore_all_dups
 setopt BANG_HIST
 setopt extended_glob
-#setopt AUTO_MENU
+setopt AUTO_MENU
 
 autoload -U compinit
 if [ -f $HOME/.zcompdump  ]; then
@@ -16,7 +16,8 @@ autoload -U select-word-style
 select-word-style bash
 
 #Auto-Completions
-if [ $commands[kubectl] ]; then
+if [ -e $commands[kubectl] ]; then
+#if [ $commands[kubectl] ]; then
   source <(kubectl completion zsh)
 fi
 #autoload _kubectl
