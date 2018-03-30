@@ -54,7 +54,7 @@ if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
           . /opt/local/etc/profile.d/bash_completion.sh
 fi
 
-if [[ -f /Applications/Xpra.app/Contents/MacOS/Xpra ]] && [[ uname == "Darwin" ]]; then
+if [[ -f /Applications/Xpra.app/Contents/MacOS/Xpra ]] && [[ $(uname) == "Darwin" ]]; then
     alias xpra=/Applications/Xpra.app/Contents/MacOS/Xpra
 fi
 
