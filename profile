@@ -48,7 +48,10 @@ alias rm='rm -i'
 alias ln='ln -i'
 alias ls='ls -Ga'
 alias grep='grep --color=auto'
-[[ -d $HOME/.wine ]] && alias 'C:'='cd ~/.wine/drive_c/Program\ Files'
+
+if [ -d "$HOME/.wine" ]; then 
+alias 'C:'='cd ~/.wine/drive_c/Program\ Files' 
+fi
 
 if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
           . /opt/local/etc/profile.d/bash_completion.sh
