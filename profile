@@ -14,12 +14,12 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 # MacPorts (on Mac)
-if [ -f /opt/local/bin/port ]; then
+if [ -d /opt/local/bin/port ]; then
     export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 fi
 
 #Fink (on Mac)
-if [ -f /sw/bin/fink ]; then
+if [ -d /sw/bin/fink ]; then
     export PATH="/sw/bin:/sw/sbin:$PATH"
 fi
 
@@ -48,13 +48,13 @@ alias rm='rm -i'
 alias ln='ln -i'
 alias ls='ls -Ga'
 alias grep='grep --color=auto'
-alias 'C:'='cd ~/.wine/drive_c/Program\ Files'
+[[ -d $HOME/.wine ]] && alias 'C:'='cd ~/.wine/drive_c/Program\ Files'
 
 if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
           . /opt/local/etc/profile.d/bash_completion.sh
 fi
 
-if [ -f /Applications/Xpra.app/Contents/MacOS/Xpra ]; then
+if [[ -f /Applications/Xpra.app/Contents/MacOS/Xpra ]] && [[ uname == "Darwin" ]]; then
     alias xpra=/Applications/Xpra.app/Contents/MacOS/Xpra
 fi
 
