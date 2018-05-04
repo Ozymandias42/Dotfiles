@@ -49,7 +49,7 @@ alias ln='ln -i'
 alias ls='ls -Ga'
 alias grep='grep --color=auto'
 
-if [! -L $(which vi) ];then #Needed on FreeBSD
+if [ ! -L $(which vi) ];then #Needed on FreeBSD
 alias vi=vim
 fi
 
