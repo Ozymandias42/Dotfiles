@@ -16,8 +16,11 @@ autoload -U select-word-style
 select-word-style bash
 
 #Auto-Completions
-if [ -e $commands[kubectl] ]; then
+#if [ -e $commands[kubectl] ]; then
 #if [ $commands[kubectl] ]; then
-  source <(kubectl completion zsh)
-fi
+#  source <(kubectl completion zsh)
+#fi
 #autoload _kubectl
+if [ -e $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+  source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi 

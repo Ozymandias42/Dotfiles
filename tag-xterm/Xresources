@@ -1,2 +1,43 @@
-Xterm*faceName: Menlo Regular
-xterm*faceSize: 11
+XTerm*loginShell: true
+XTerm*termName: xterm-color
+XTerm*renderFont: default
+XTerm*font: Hack
+XTerm*faceName: Hack
+XTerm*faceSiye: 12
+
+! special
+XTerm*foreground:   #e4e4e4
+XTerm*background:   #1a1a1a
+XTerm*cursorColor:  #c5c8c6
+
+! black
+XTerm*color0:       #0c0d0e
+XTerm*color8:       #737475
+
+! red
+XTerm*color1:       #a54242
+XTerm*color9:       #cc6666
+
+! green
+XTerm*color2:       #8c9440
+XTerm*color10:      #b5bd68
+
+! yellow
+XTerm*color3:       #de935f
+XTerm*color11:      #f0c674
+
+! blue
+XTerm*color4:       #5f819d
+XTerm*color12:      #81a2be
+
+! magenta
+XTerm*color5:       #85678f
+XTerm*color13:      #b294bb
+
+! cyan
+XTerm*color6:       #5e8d87
+XTerm*color14:      #8abeb7
+
+! white
+XTerm*color7:       #707880
+XTerm*color15:      #c5c8c6

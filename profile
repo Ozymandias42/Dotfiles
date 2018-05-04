@@ -14,12 +14,12 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 # MacPorts (on Mac)
-if [ -d /opt/local/bin/port ]; then
+if [ -f /opt/local/bin/port ]; then
     export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 fi
 
 #Fink (on Mac)
-if [ -d /sw/bin/fink ]; then
+if [ -f /sw/bin/fink ]; then
     export PATH="/sw/bin:/sw/sbin:$PATH"
 fi
 
@@ -48,6 +48,10 @@ alias rm='rm -i'
 alias ln='ln -i'
 alias ls='ls -Ga'
 alias grep='grep --color=auto'
+
+if [! -L $(which vi) ];then #Needed on FreeBSD
+alias vi=vim
+fi
 
 if [ -d "$HOME/.wine" ]; then 
 alias 'C:'='cd ~/.wine/drive_c/Program\ Files' 
