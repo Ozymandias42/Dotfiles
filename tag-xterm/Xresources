@@ -3,7 +3,7 @@ XTerm*termName: xterm-color
 XTerm*renderFont: default
 XTerm*font: Hack
 XTerm*faceName: Hack
-XTerm*faceSiye: 12
+XTerm*faceSize: 12
 
 ! special
 XTerm*foreground:   #e4e4e4
@@ -15,28 +15,40 @@ XTerm*color0:       #0c0d0e
 XTerm*color8:       #737475
 
 ! red
-XTerm*color1:       #a54242
-XTerm*color9:       #cc6666
+!XTerm*color1:       #a54242
+!XTerm*color9:       #cc6666
+XTerm*color1:       #e92e26
+XTerm*color9:       #e92e26
 
 ! green
-XTerm*color2:       #8c9440
-XTerm*color10:      #b5bd68
+XTerm*color2:       #39b06c
+XTerm*color10:      #39b06c
+!XTerm*color2:       #8c9440
+!XTerm*color10:      #b5bd68
 
 ! yellow
-XTerm*color3:       #de935f
-XTerm*color11:      #f0c674
+XTerm*color3:       #e3af77
+XTerm*color11:      #e3af77
+!XTerm*color3:       #de935f
+!XTerm*color11:      #f0c674
 
 ! blue
-XTerm*color4:       #5f819d
-XTerm*color12:      #81a2be
+XTerm*color4:       #3d93c6
+XTerm*color12:      #3d93c6
+!XTerm*color4:       #5f819d
+!XTerm*color12:      #81a2be
 
 ! magenta
-XTerm*color5:       #85678f
-XTerm*color13:      #b294bb
+XTerm*color5:       #877fbb
+XTerm*color13:      #877fbb
+!XTerm*color5:       #85678f
+!XTerm*color13:      #b294bb
 
 ! cyan
-XTerm*color6:       #5e8d87
-XTerm*color14:      #8abeb7
+XTerm*color6:       #90bdd8
+XTerm*color14:      #90bdd8
+!XTerm*color6:       #5e8d87
+!XTerm*color14:      #8abeb7
 
 ! white
 XTerm*color7:       #707880

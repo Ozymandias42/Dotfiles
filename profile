@@ -28,9 +28,11 @@ export PROXY_HTTPS=192.168.1.5:3128
 export PROXY_FTP=192.168.1.5:3128
 #export HTTP_PROXY=192.168.1.5:3128
 #export WINEPREFIX="$HOME/Wine Files"
-export WINEDEBUG="warn-all,relay-all,err-all"
-#export VISUAL=vi
-#export EDITOR=vi
+export WINEDEBUG="warn-all,relay-all,err-all" fi
+export VISUAL=vi
+export EDITOR=vi
+
+export LC_ALL="de_DE.UTF-8"
 
 #Workaround to get fontsmoothing for wine. See: https://bugs.winehq.org/show_bug.cgi?id=41639
 [[ $(uname) == "Darwin" ]] && export FREETYPE_PROPERTIES="truetype:interpreter-version=35"; 
@@ -67,4 +69,5 @@ fi
 
 #export LSCOLORS=cxfxcDdCBxegedabagacad
 #export CLICOLOR=1
+
 

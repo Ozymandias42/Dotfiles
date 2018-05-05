@@ -41,21 +41,21 @@ draw_bold_text_with_bright_colors: false
 font:
   # The normal (roman) font face to use.
   normal:
-    family: Source Code Pro
+    family: Menlo
     # Style can be specified to pick a specific face.
-    style: Regular
+    # style: Regular
 
   # The bold font face
   bold:
-    family: Source Code Pro
+    family: Menlo
     # Style can be specified to pick a specific face.
     style: Bold
 
   # The italic font face
   italic:
-    family: Source Code Pro
+    family: Menlo
     # Style can be specified to pick a specific face.
-    style: Italic
+    # style: Italic
 
   # Point size of the font
   size: 14.0
@@ -93,23 +93,23 @@ colors:
   # Normal colors
   normal:
     black:   '0x0c0d0e'
-    red:     '0xe92e26'
-    green:   '0x39b06c'
-    yellow:  '0xe3af77'
-    blue:    '0x3d93c6'
-    magenta: '0x877fbb'
-    cyan:    '0x90bdd8'
+    red:     '0xe31a1c'
+    green:   '0x31a354'
+    yellow:  '0xdca060'
+    blue:    '0x3182bd'
+    magenta: '0x756bb1'
+    cyan:    '0x80b1d3'
     white:   '0xe4e4e4'
 
   # Bright colors
   bright:
     black:   '0x737475'
-    red:     '0xe92e26'
-    green:   '0x39b06c'
-    yellow:  '0xe3af77'
-    blue:    '0x3d93c6'
-    magenta: '0x877fbb'
-    cyan:    '0x90bdd8'
+    red:     '0xe31a1c'
+    green:   '0x31a354'
+    yellow:  '0xdca060'
+    blue:    '0x3182bd'
+    magenta: '0x756bb1'
+    cyan:    '0x80b1d3'
     white:   '0xe5e5e5'
 # Colors (Tomorrow Night Bright)
 #colors:
@@ -247,9 +247,9 @@ live_config_reload: true
 # Entries in shell.args are passed unmodified as arguments to the shell.
 #
 shell:
-  program: /opt/local/bin/tmux
-  #  args:
-  #    - -l
+  program: /bin/zsh
+  args:
+    - -l
 
 # Key bindings
 #
@@ -301,13 +301,8 @@ key_bindings:
   - { key: N,        mods: Alt,     chars: "~"                           }
   - { key: L,        mods: Alt,     chars: "@"                           }
   - { key: Key7,     mods: Alt,     chars: "|"                           }
-  - { key: Key8,     mods: Alt,     chars: "{"                           }
-  - { key: Key9,     mods: Alt,     chars: "}"                           }
-  - { key: Key5,     mods: Alt,     chars: "["                           }
-  - { key: Key6,     mods: Alt,     chars: "]"                           }
-  - { key: Key7,     mods: Alt,Shift     chars: "\\"                           }
-  - { key: PageUp,   mods: Control, chars: "\x1b[5;5~"                   }
   - { key: PageUp,   mods: Shift,   chars: "\x1b[5;2~"                   }
+  - { key: PageUp,   mods: Control, chars: "\x1b[5;5~"                   }
   - { key: PageUp,                  chars: "\x1b[5~"                     }
   - { key: PageDown, mods: Shift,   chars: "\x1b[6;2~"                   }
   - { key: PageDown, mods: Control, chars: "\x1b[6;5~"                   }
