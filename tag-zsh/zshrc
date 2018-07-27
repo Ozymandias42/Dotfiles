@@ -6,14 +6,22 @@ setopt BANG_HIST
 setopt extended_glob
 setopt AUTO_MENU
 
-autoload -U compinit
+autoload -U compinit select-word-style
 if [ -f $HOME/.zcompdump  ]; then
 compinit -d $HOME/.zcompdump -i
 else
 compinit -i
 fi
-autoload -U select-word-style
 select-word-style bash
+
+#make shit work on lnux
+if [ `uname` = "Linux" ]; then
+    bindkey "^[[1;5D" backward-word
+    bindkey "^[[1;5C" forward-word
+fi
+
+
+zstyle ':completion:*' menu select
 
 #Auto-Completions
 #if [ -e $commands[kubectl] ]; then
@@ -24,3 +32,34 @@ select-word-style bash
 if [ -e $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
   source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi 
+
+autoload -U colors && colors
+TERM=xterm-256color
+
+#Set Colors.
+#BLUE="%F{33}"
+BLUE="%F{blue}"
+BLACK="%{$fg[default]%}"
+GREEN="%{$fg[green]%}"
+
+ID="%n@%m:"
+DIR="%3~"
+#CWD="%3~"
+#function precmd {
+#     PADS=$((${COLUMNS}-$((${#${(%)ID}}+${#${(%)DIR}}))-1))
+#     PAD=${(l.PADS.. .)}
+#     PS1="%B$BLUE""%n@%m%f%b$BLACK:$PAD%3~ $BLUE
+#%B%#%b $BLACK" 
+#}
+PS1="%B$BLUE""%n@%m%f%b$BLACK:%3~ 
+$BLUE%B%#%b $BLACK" 
+
+#Set PS1-Prompt
+#"["$BLUE"zsh"$BLACK"]
+
+#SHIT DOESNT WORK FOR CASE AND HAS SHIT DEBUGGING
+#Parsing of general .profile for all POSIX compliant shells.
+#[[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
+
+#WORKING SHIT
+source ~/.profile
