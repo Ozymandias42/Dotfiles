@@ -1,4 +1,6 @@
-set guifont=Monaco:h14
-set bg=dark
-colorscheme slate
+set guifont=Source\ Code\ Pro\ Medium\ 10 
+set bg=light
+colorscheme breezy
 set autoread
+set guioptions -=m
+set guioptions -=T

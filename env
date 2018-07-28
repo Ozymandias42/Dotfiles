@@ -1,0 +1,31 @@
+####
+#SHELL AND OS INDEPENDENT ENVIRONMENT VARIABLES
+####
+
+#PROXY VARIABLES STYLE 1
+#export PROXY_HTTP=192.168.1.5:3128
+#export PROXY_HTTPS=192.168.1.5:3128
+#export PROXY_FTP=192.168.1.5:3128
+
+#PROXY VARIABLES STYLE 2
+#export HTTP_PROXY=192.168.1.5:3128
+#export HTTPS_PROXY=192.168.1.5:3128
+#export FTP_PROXY=192.168.1.5:3128
+
+#LOCALES
+export LC_ALL="de_DE.UTF-8"
+
+#NOTE: no export because these are for use in setIfCmdExist function.
+EDITOR=vi
+VISUAL=vi
+
+#OS-INDEPENDENT ALIASES
+#Aliases for convenvience and keeping me from accidentially deleting stuff.
+alias cls=clear
+alias cp='cp -iv'
+alias mv='mv -iv'
+alias rm='rm -i'
+alias ln='ln -i'
+alias ls='ls -Ga'
+alias grep='grep --color=auto'
+[ -d "$HOME/.wine" ] && alias 'C:'='cd ~/.wine/drive_c/Program\ Files'

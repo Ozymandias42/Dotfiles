@@ -1,0 +1,7 @@
+#!/bin/bash
+
+freebsdAliases=( )
+freebsdEvals=( 
+'[ ! -L $(which vi) ] && alias vi=vim' \
+)    
+

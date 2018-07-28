@@ -1,0 +1,25 @@
+#!/bin/bash
+
+
+export FREETYPE_PROPERTIES="truetype:interpreter-version=35"
+
+[ -f /opt/local/etc/profile.d/bash_completion.sh ] \
+&& . /opt/local/etc/profile.d/bash_completion.sh
+
+macPaths=( #Array item format: PATH2Check@PATHS2Set
+    #MacPorts
+    "/opt/local/bin@/opt/local/bin:/opt/local/sbin"\
+    #Fink
+    "/sw/bin@/sw/bin:/sw/sbin"\
+    #UserScripts folder
+    "$HOME/UserScripts@$HOME/UserScripts"\
+    )
+
+macVariables=( #Array item format: VARNAME@VALUE[@COMMAND2CHECK4]
+#Workaround to get fontsmoothing for wine. See: https://bugs.winehq.org/show_bug.cgi?id=41639
+    "FREETYPE_PROPERTIES@truetype:interpreter-version=35"
+    )
+
+macAliases=( #Array item format: ALIAS@COMMAND2CHECK4
+    "xpra@/Applications/Xpra.app/Contents/MacOS/Xpra" \
+    )

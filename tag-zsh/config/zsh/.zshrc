@@ -1,14 +1,19 @@
-setopt complete_in_word
-#setopt single_line_zle
-setopt INC_APPEND_HISTORY
-setopt hist_ignore_all_dups
-setopt BANG_HIST
-setopt extended_glob
-setopt AUTO_MENU
+#According to https://unix.stackexchange.com/questions/71253/what-should-shouldnt-go-in-zshenv-zshrc-zlogin-zprofile-zlogout#71258
+#zshrc is to initialise the behaviour and features of the interactive shell.
 
+#ZSH feature options to be used.
+#setopt single_line_zle
+setopt complete_in_word #allow autocompletion to act on words.
+setopt INC_APPEND_HISTORY #append when writing to pre-existing history.
+setopt hist_ignore_all_dups #don't save duplicates in history
+setopt BANG_HIST #use bash like history
+setopt extended_glob #allow bash like globbing
+setopt AUTO_MENU #create menu from autocompletions
+
+autoload -U colors && colors
 autoload -U compinit select-word-style
-if [ -f $HOME/.zcompdump  ]; then
-compinit -d $HOME/.zcompdump -i
+if [ -f ${ZDOTDIR:-$HOME}/.zcompdump  ]; then
+compinit -d ${ZDOTDIR:-$HOME}/.zcompdump -i
 else
 compinit -i
 fi
@@ -23,18 +28,10 @@ fi
 
 zstyle ':completion:*' menu select
 
-#Auto-Completions
-#if [ -e $commands[kubectl] ]; then
-#if [ $commands[kubectl] ]; then
-#  source <(kubectl completion zsh)
-#fi
-#autoload _kubectl
 if [ -e $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
   source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi 
 
-autoload -U colors && colors
-TERM=xterm-256color
 
 #Set Colors.
 #BLUE="%F{33}"
@@ -49,7 +46,7 @@ DIR="%3~"
 #     PADS=$((${COLUMNS}-$((${#${(%)ID}}+${#${(%)DIR}}))-1))
 #     PAD=${(l.PADS.. .)}
 #     PS1="%B$BLUE""%n@%m%f%b$BLACK:$PAD%3~ $BLUE
-#%B%#%b $BLACK" 
+#%B%#%b $BLACK"
 #}
 PS1="%B$BLUE""%n@%m%f%b$BLACK:%3~ 
 $BLUE%B%#%b $BLACK" 
@@ -62,4 +59,5 @@ $BLUE%B%#%b $BLACK"
 #[[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
 
 #WORKING SHIT
-source ~/.profile
+#source ~/.profile
+[ -e ${HOME}/.osindeprc ] && source ${HOME}/.osindeprc

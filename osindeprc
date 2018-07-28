@@ -1,0 +1,117 @@
+#!/bin/bash
+
+DEBUG=1 #0 true, 1 false
+PLATFORM=$(uname)
+####
+#HELPER FUNCTIONS
+####
+inPath() { 
+#returns 0 if true, else 1
+    #Create array from Path
+    tmpPaths=( $(echo $PATH|tr ':' ' ') )
+    #echo $tmpPaths
+    occurences=0
+    for i in ${tmpPaths[@]}; do
+        [[ $1 == $i ]] && occurences=$((occurences+1))
+        [[ $occurences -eq 1 ]] && ret=0; break
+    done
+    
+    [[ $ret -eq 0 ]] && echo $ret || echo 1
+};
+
+setVariable() {
+    #USAGE Expl. f. setVariable $1 $2 $3
+    #setVariable WINEDEBUG "warn-all" wine //$3 is supplied so so it will be checked for
+    #via ${3:-${2}} #NOTE: ${var:-x} substitutes x for var if var unset OR empty.
+    #USAGE Expl. f. setVariable $1 $2
+    #setVariable EDITOR vi //$3 does not exist so it will be checked for $2
+    
+    [[ -f $(which ${3:-${2}}) ]] \
+    && export $1=$2 \
+    || { [[ $DEBUG -eq 0 ]] && echo "Problem with export $1=$2\n$2 not installed" }
+    
+} ;
+
+#USAGE EXAMPLE:
+#setPath /opt/local/bin/port /opt/local/bin:/opt/local/sbin
+# => [[ -d /opt/local/bin/port ]] && export /opt/local/...:$PATH
+setPath() { [ -d $1 ] && export PATH=$2:$PATH };
+
+setAlias() { 
+    [[ -x $2 ]] \
+    && alias $1="$2" \
+    || { [[ $DEBUG -eq 0 ]] && echo "$2 is not installed" } 
+};
+
+setEvals() {
+    for i in $@;do
+        eval $i
+    done
+};
+
+#Map-Function. Usage example: map func2apply array on whose elements to apply func on.
+map() {
+    for i in $2; do
+        $1 $(echo $i|tr '@' ' ')
+    done    
+}
+
+
+####
+#OS INDEPENDENT STUFF
+####
+[ -f $HOME/.env ] && . $HOME/.env
+
+# set PATH so it includes user's private bin if it exists.
+#NOTE: inPath is required since it seems to be set from somewhere else on some systems.
+[[ -d "$HOME/bin" ]] && [[ ! $(inPath "$HOME/bin") -eq 0 ]] && PATH="$HOME/bin:$PATH"
+
+#VARIABLES DEPENDING ON COMMANDS BEING PRESENT
+setVariable WINEDEBUG "warn-all,relay-all,err-all" wine
+setVariable EDITOR $EDITOR
+setVariable VISUAL $VISUAL
+
+###PLOWING A PATH TO THE BINS
+    case $PLATFORM in
+        "Darwin") 
+            [ -f $HOME/.env-mac ] \
+            && {
+                source $HOME/.env-mac
+                map setPath $macPaths
+                map setAlias $macAliases
+                map setVariable $macVariables
+            }
+            ;;
+        "Linux")
+            ;;
+        "FreeBSD")
+            #setALIASES $freebsdAliases
+            setEvals $freebsdEvals
+            ;;
+    esac
+
+
+####
+#STUFF TO COMPLEX TO PROCESS IN BATCH. I.E. CUSTOM FUNCTIONS
+####
+
+#ZFS SPECIFIC STUFF
+[ -f /usr/sbin/zpool ] && {
+    plattform=$(uname)
+    
+    case $plattform in 
+        "Linux")
+            defaultPath="/run/media/$(whoami)/ZFS" 
+            ;;
+        "Darwin")
+            defaultPath="/Volumes/ZFS" 
+            ;;
+        *)
+            defaultPath="/mnt/ZFS" 
+            ;;
+    esac
+    
+    zpooli() {  sudo zpool import -a ${1} -R ${defaultPath} } ;
+    
+    alias zpoole="sudo zpool export -a" 
+}

@@ -1,4 +1,11 @@
+#Alternative directory for zsh dotfiles.
+#This file (.zshenv) is always in $HOME
+ZDOTDIR=$HOME/.config/zsh
+
 #History settings
 HISTSIZE=1000
 SAVEHIST=$HISTSIZE
-HISTFILE=$HOME/.zsh_history
+HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
+
+#Required for tmux compat in macOS
+TERM=xterm-256color
