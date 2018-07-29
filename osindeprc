@@ -26,21 +26,21 @@ setVariable() {
     #USAGE Expl. f. setVariable $1 $2
     #setVariable EDITOR vi //$3 does not exist so it will be checked for $2
     
-    [[ -f $(which ${3:-${2}}) ]] \
+    [[ -f $(which ${3:-${2}} &>/dev/null ) ]] \
     && export $1=$2 \
-    || { [[ $DEBUG -eq 0 ]] && echo "Problem with export $1=$2\n$2 not installed" }
+    || { [[ $DEBUG -eq 0 ]] && echo "Problem with export $1=$2\n$2 not installed" ; }
     
 } ;
 
 #USAGE EXAMPLE:
 #setPath /opt/local/bin/port /opt/local/bin:/opt/local/sbin
 # => [[ -d /opt/local/bin/port ]] && export /opt/local/...:$PATH
-setPath() { [ -d $1 ] && export PATH=$2:$PATH };
+setPath() { [ -d $1 ] && export PATH=$2:$PATH ; };
 
 setAlias() { 
     [[ -x $2 ]] \
     && alias $1="$2" \
-    || { [[ $DEBUG -eq 0 ]] && echo "$2 is not installed" } 
+    || { [[ $DEBUG -eq 0 ]] && echo "$2 is not installed" ; } 
 };
 
 setEvals() {
@@ -53,37 +53,37 @@ setEvals() {
 map() {
     for i in $2; do
         $1 $(echo $i|tr '@' ' ')
-    done    
-}
+    done  
+};
 
 
 ####
 #OS INDEPENDENT STUFF
 ####
-[ -f $HOME/.env ] && {
+[ -e $HOME/.env ] && {
     #VARIABLES DEPENDING ON COMMANDS BEING PRESENT
     #Made conditional because of reliance on variables declared in $HOME/.env
     . $HOME/.env
     setVariable WINEDEBUG "warn-all,relay-all,err-all" wine
     setVariable EDITOR $EDITOR
     setVariable VISUAL $VISUAL
-} || echo "$HOME/.env does not exist. Is this intended?" 1&>2 ;
+} #|| echo "$HOME/.env does not exist. Is this intended?" ;
 
 # set PATH so it includes user's private bin if it exists.
 #NOTE: inPath is required since it seems to be set from somewhere else on some systems.
-[[ -d "$HOME/bin" ]] && [[ ! $(inPath "$HOME/bin") -eq 0 ]] && PATH="$HOME/bin:$PATH"
+[[ -d "$HOME/bin" ]] && [[ ! $(inPath "$HOME/bin") -eq 0 ]] && PATH="$HOME/bin:$PATH" 
 
 
 ###PLOWING A PATH TO THE BINS
     case $PLATFORM in
         "Darwin") 
-            [ -f $HOME/.env-mac ] \
+            [ -e $HOME/.env-mac ] \
             && {
                 source $HOME/.env-mac 
                 map setPath $macPaths
                 map setAlias $macAliases
                 map setVariable $macVariables
-            } || echo "$HOME/.env-mac does not exist. is this intended?" 1&>2
+            } || echo "$HOME/.env-mac does not exist. is this intended?" 
             ;;
         "Linux")
             ;;
@@ -104,20 +104,20 @@ map() {
     
     case $plattform in 
         "Linux")
-            defaultPath="/run/media/$(whoami)/ZFS"  
+            defaultMountPoint="/run/media/$(whoami)/ZFS"  
             group="users"
             ;;
         "Darwin")
-            defaultPath="/Volumes/ZFS" 
+            defaultMountPoint="/Volumes/ZFS" 
             ;;
         *)
-            defaultPath="/mnt/ZFS" 
+            defaultMountPoint="/mnt/ZFS" 
             ;;
     esac
     
     zpooli() {  
-        [ ! -d $defaultPath ] && sudo mkdir $defaultPath
-        sudo zpool import -a ${1} -N -R $defaultPath 
+        [ ! -d $defaultMountPoint ] && sudo mkdir $defaultMountPoint
+        sudo zpool import -a ${1} -N -R $defaultMountPoint 
         pools=()
         mounts=()
         for i in $(sudo zfs list|tail -n+2|cut -d ' ' -f 1); do
@@ -135,3 +135,4 @@ map() {
     
     alias zpoole="sudo zpool export -a" 
 }
+
