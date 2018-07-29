@@ -104,7 +104,8 @@ map() {
     
     case $plattform in 
         "Linux")
-            defaultPath="/run/media/$(whoami)/ZFS" 
+            defaultPath="/run/media/$(whoami)/ZFS"  
+            group="users"
             ;;
         "Darwin")
             defaultPath="/Volumes/ZFS" 
@@ -114,7 +115,23 @@ map() {
             ;;
     esac
     
-    zpooli() {  sudo zpool import -a ${1} -R ${defaultPath} } ;
+    zpooli() {  
+        [ ! -d $defaultPath ] && sudo mkdir $defaultPath
+        sudo zpool import -a ${1} -N -R $defaultPath 
+        pools=()
+        mounts=()
+        for i in $(sudo zfs list|tail -n+2|cut -d ' ' -f 1); do
+            pools=( ${pools[@]} $i )
+        done
+        for i in $(sudo zfs list|tail -n+2|cut -d ' ' -f 9); do
+            mounts=( ${mounts[@]} $i  )
+        done
+        for (( i=1;i<=${#pools[@]};i++ )) ; do
+            sudo zfs mount ${pools[$i]}
+            sudo chown $(whoami) ${mounts[$i]}
+            sudo chgrp $group    ${mounts[$i]}
+        done
+    } ;
     
     alias zpoole="sudo zpool export -a" 
 }
