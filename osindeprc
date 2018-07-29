@@ -60,27 +60,28 @@ map() {
 ####
 #OS INDEPENDENT STUFF
 ####
-[ -f $HOME/.env ] && . $HOME/.env
+[ -f $HOME/.env ] && . $HOME/.env && {
+    #VARIABLES DEPENDING ON COMMANDS BEING PRESENT
+    #Made conditional because of reliance on variables declared in $HOME/.env
+    setVariable WINEDEBUG "warn-all,relay-all,err-all" wine
+    setVariable EDITOR $EDITOR
+    setVariable VISUAL $VISUAL
+} || echo "$HOME/.env does not exist. Is this intended?" 1&>2 ;
 
 # set PATH so it includes user's private bin if it exists.
 #NOTE: inPath is required since it seems to be set from somewhere else on some systems.
 [[ -d "$HOME/bin" ]] && [[ ! $(inPath "$HOME/bin") -eq 0 ]] && PATH="$HOME/bin:$PATH"
 
-#VARIABLES DEPENDING ON COMMANDS BEING PRESENT
-setVariable WINEDEBUG "warn-all,relay-all,err-all" wine
-setVariable EDITOR $EDITOR
-setVariable VISUAL $VISUAL
 
 ###PLOWING A PATH TO THE BINS
     case $PLATFORM in
         "Darwin") 
             [ -f $HOME/.env-mac ] \
-            && {
-                source $HOME/.env-mac
+            && source $HOME/.env-mac && {
                 map setPath $macPaths
                 map setAlias $macAliases
                 map setVariable $macVariables
-            }
+            } || echo "$HOME/.env-mac does not exist. is this intended?" 1&>2
             ;;
         "Linux")
             ;;
