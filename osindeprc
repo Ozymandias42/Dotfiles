@@ -60,9 +60,10 @@ map() {
 ####
 #OS INDEPENDENT STUFF
 ####
-[ -f $HOME/.env ] && . $HOME/.env && {
+[ -f $HOME/.env ] && {
     #VARIABLES DEPENDING ON COMMANDS BEING PRESENT
     #Made conditional because of reliance on variables declared in $HOME/.env
+    . $HOME/.env
     setVariable WINEDEBUG "warn-all,relay-all,err-all" wine
     setVariable EDITOR $EDITOR
     setVariable VISUAL $VISUAL
@@ -77,7 +78,8 @@ map() {
     case $PLATFORM in
         "Darwin") 
             [ -f $HOME/.env-mac ] \
-            && source $HOME/.env-mac && {
+            && {
+                source $HOME/.env-mac 
                 map setPath $macPaths
                 map setAlias $macAliases
                 map setVariable $macVariables
