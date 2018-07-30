@@ -51,17 +51,10 @@ setEvals() {
 
 #Map-Function. Usage example: map func2apply array on whose elements to apply func on.
 map() {
-<<<<<<< HEAD
     for i in ${@:2}; do
        $1 $(echo $i|tr '@' ' ')
     done    
 }
-=======
-    for i in $2; do
-        $1 $(echo $i|tr '@' ' ')
-    done  
-};
->>>>>>> 43dff7ce8305e3cfe6436dd1764ce448e81ed41e
 
 
 ####
@@ -90,11 +83,7 @@ map() {
                 map setPath $macPaths
                 map setAlias $macAliases
                 map setVariable $macVariables
-<<<<<<< HEAD
             } #|| echo "$HOME/.env-mac does not exist. is this intended?" 1&>2
-=======
-            } || echo "$HOME/.env-mac does not exist. is this intended?" 
->>>>>>> 43dff7ce8305e3cfe6436dd1764ce448e81ed41e
             ;;
         "Linux")
             ;;
