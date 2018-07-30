@@ -12,7 +12,7 @@ macPaths=( #Array item format: PATH2Check@PATHS2Set
     #Fink
     "/sw/bin@/sw/bin:/sw/sbin"\
     #UserScripts folder
-    "$HOME/UserScripts@$HOME/UserScripts"\
+    "${HOME}/UserScripts@${HOME}/UserScripts"\
     )
 
 macVariables=( #Array item format: VARNAME@VALUE[@COMMAND2CHECK4]
