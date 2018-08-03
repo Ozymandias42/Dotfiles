@@ -28,4 +28,5 @@ alias rm='rm -i'
 alias ln='ln -i'
 alias ls='ls -Ga'
 alias grep='grep --color=auto'
+alias did="vim +'normal Go' +'r!date' +'normal Go' +'normal i -  ' ~/did.txt"
 [ -d "$HOME/.wine" ] && alias 'C:'='cd ~/.wine/drive_c/Program\ Files'

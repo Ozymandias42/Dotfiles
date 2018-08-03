@@ -116,22 +116,35 @@ map() {
     esac
     
     zpooli() {  
-        [ ! -d $defaultMountPoint ] && sudo mkdir $defaultMountPoint
+        [ ! -d $defaultMountPoint ] && { echo "$defaultMountPoint does not exist. Creating.."  sudo mkdir $defaultMountPoint }
         sudo zpool import -a ${1} -N -R $defaultMountPoint 
         pools=()
         mounts=()
-        for i in $(sudo zfs list|tail -n+2|cut -d ' ' -f 1); do
-            pools=( ${pools[@]} $i )
+        
+        #Saving old IFS for later restore and setting new to newline to iterate over multiline cmd output
+        IFSOLD=$IFS
+        IFS='
+'
+
+        for line in $(sudo zfs list|tail -n+2); do
+            pool=$(echo $line|cut -d ' ' -f 1)
+            mount=$(echo $line|grep -Po '(?<=\s)\/.+')
+            pools=( ${pools[@]} $pool )
+            mounts=( ${mounts[@]} ${mount:-"-"} )
         done
-        for i in $(sudo zfs list|tail -n+2|cut -d ' ' -f 9); do
-            mounts=( ${mounts[@]} $i  )
-        done
+        IFS=$IFSOLD
+        #Debug line
+        #for i in {1..${#pools[@]}};do echo "${pools[$i]} ${mounts[$i]}";done
+        
         for (( i=1;i<=${#pools[@]};i++ )) ; do
-            sudo zfs mount ${pools[$i]}
-            sudo chown $(whoami) ${mounts[$i]}
-            sudo chgrp $group    ${mounts[$i]}
+            if [[ "${defaultMountPoint}/${pools[$i]}" == "${mounts[$i]}" ]]; then
+                printf "Mounting %10s to %s\n" ${pools[$i]} ${mounts[$i]}
+                sudo zfs mount ${pools[$i]}
+                sudo chown $(whoami) ${mounts[$i]}
+                sudo chgrp $group    ${mounts[$i]}
+            fi
         done
-    } ;
+    } ; 
     
     alias zpoole="sudo zpool export -a" 
 }
