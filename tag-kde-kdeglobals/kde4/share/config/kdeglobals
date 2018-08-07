@@ -150,7 +150,7 @@ shadeSortColumn=true
 smallestReadableFont=San Francisco Display,9,-1,5,63,0,0,0,0,0,Semibold
 taskbarFont=Noto Sans,10,-1,5,50,0,0,0,0,0,Regular
 toolBarFont=San Francisco Display,10,-1,5,57,0,0,0,0,0,Medium
-widgetStyle=Breeze
+widgetStyle=breeze
 
 [Icons]
 Theme=breeze-dark
