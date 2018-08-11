@@ -34,7 +34,7 @@
             pool=$(echo $line|cut -d ' ' -f 1)
             #Does not work in macOS because macOS grep does not support -P flag for Perl regex which is required for positive lookahead (?<=...)
             [[ "$PLATFORM" == "Linux"  ]] && mount=$(echo $line|grep -Po '(?<=\s)\/.+' )
-            [[ "$PLATFORM" == "Darwin" ]] && mount=$(echo $line|grep -Eo '\/.+'))
+            [[ "$PLATFORM" == "Darwin" ]] && mount=$(echo $line|grep -Eo '\/.+')
             pools=( ${pools[@]} $pool )
             mounts=( ${mounts[@]} ${mount:-"-"} )
             [[ ${#pool} -ge $nameLength ]] && nameLength=${#pool}
