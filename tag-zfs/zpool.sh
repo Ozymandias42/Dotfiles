@@ -1,23 +1,25 @@
 
 #ZFS SPECIFIC STUFF
-    zpoolLocation=$(which zpool)
 
-[ -f $zpoolLocation ] && {
     
     case $PLATFORM in 
         "Linux")
             defaultMountPoint="/run/media/$(whoami)/ZFS"  
+            zpoolLocation="/usr/sbin/zpool"
             group="users"
             ;;
         "Darwin")
             defaultMountPoint="/Volumes/ZFS" 
+            zpoolLocation=$(which zpool)
             ;;
         *)
             defaultMountPoint="/mnt/ZFS" 
             ;;
     esac
     export cfs="$defaultMountPoint"
-    
+
+[[ -e $zpoolLocation ]] && {
+
     zpooli() {  
         [ ! -d $defaultMountPoint ] && { echo "$defaultMountPoint does not exist. Creating.."  sudo mkdir $defaultMountPoint }
         sudo zpool import -a ${1} -N -R $defaultMountPoint 
@@ -55,4 +57,3 @@
     
     alias zpoole="sudo zpool export -a" 
 }
-
