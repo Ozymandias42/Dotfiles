@@ -166,7 +166,7 @@ StartDragDist=4
 StartDragTime=500
 WheelScrollLines=3
 contrast=4
-widgetStyle=Breeze
+widgetStyle=breeze
 
 [MainToolbarIcons]
 ActiveColor=169,156,255
