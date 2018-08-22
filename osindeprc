@@ -65,8 +65,8 @@ map() {
     #Made conditional because of reliance on variables declared in $HOME/.env
     . $HOME/.env
     setVariable WINEDEBUG "warn-all,relay-all,err-all" wine
-    setVariable EDITOR $EDITOR
-    setVariable VISUAL $VISUAL
+    #setVariable EDITOR $EDITOR
+    #setVariable VISUAL $VISUAL
 } #|| echo "$HOME/.env does not exist. Is this intended?" ;
 
 # set PATH so it includes user's private bin if it exists.
