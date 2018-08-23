@@ -1,0 +1,1 @@
+[[ $(lsblk|grep SD128GB) ]] && export SD128GB=/run/media/$(whoami)/SD128GB
