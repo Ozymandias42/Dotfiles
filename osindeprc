@@ -26,7 +26,7 @@ setVariable() {
     #USAGE Expl. f. setVariable $1 $2
     #setVariable EDITOR vi //$3 does not exist so it will be checked for $2
     
-    [[ -f $(which ${3:-${2}} &>/dev/null ) ]] \
+    [[ -f $(which ${3:-${2}} ) ]] \
     && export $1=$2 \
     || { [[ $DEBUG -eq 0 ]] && echo "Problem with export $1=$2\n$2 not installed" ; }
     
@@ -63,8 +63,8 @@ map() {
 [ -e $HOME/.env ] && {
     #VARIABLES DEPENDING ON COMMANDS BEING PRESENT
     #Made conditional because of reliance on variables declared in $HOME/.env
-    . $HOME/.env
-    setVariable WINEDEBUG "warn-all,relay-all,err-all" wine
+    . $HOME/.env ;
+    setVariable WINEDEBUG "warn-all,relay-all,err-all" wine ;
     #setVariable EDITOR $EDITOR
     #setVariable VISUAL $VISUAL
 } #|| echo "$HOME/.env does not exist. Is this intended?" ;
@@ -86,6 +86,10 @@ map() {
             } #|| echo "$HOME/.env-mac does not exist. is this intended?" 1&>2
             ;;
         "Linux")
+            [ -e $HOME/.env-linux ] \
+            && {
+                source $HOME/.env-linux
+            }
             ;;
         "FreeBSD")
             #setALIASES $freebsdAliases
