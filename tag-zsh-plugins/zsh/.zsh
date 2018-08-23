@@ -1,1 +1,0 @@
-/home/fabian/.dotfiles/tag-zsh-plugins/zsh
