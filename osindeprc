@@ -97,6 +97,7 @@ map() {
             ;;
     esac
 
+    [[ -e $HOME/.functionsrc ]] && source $HOME/.functionsrc
 
 ####
 #STUFF TO COMPLEX TO PROCESS IN BATCH. I.E. CUSTOM FUNCTIONS
