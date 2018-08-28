@@ -7,11 +7,13 @@
             defaultMountPoint="/run/media/$(whoami)/ZFS"  
             zpoolLocation="/usr/sbin/zpool"
             group="users"
+            checkIfMountable() { [[ "${defaultMountPoint}/$1" == "$2" ]] && echo 1 || echo 0 ;}
             ;;
         "Darwin")
             defaultMountPoint="/Volumes" 
             zpoolLocation=$(which zpool)
             group="staff"
+            checkIfMountable() { [[ "${defaultMountPoint}/$1" == "$2" ]] && echo 1 || echo 0 ;}
             ;;
         *)
             defaultMountPoint="/mnt/ZFS" 
@@ -22,10 +24,9 @@
 [[ -e $zpoolLocation ]] && {
 
 
-    checkIfMountable() { [[ "${defaultMountPoint}/$1" == "$2" ]] && echo 1 || echo 0 ;}
     zpooli() {  
         [ ! -d $defaultMountPoint ] && { echo "$defaultMountPoint does not exist. Creating.."  sudo mkdir $defaultMountPoint }
-        sudo zpool import -a ${1} -N 
+        [[ "$PLATFORM" = "Darwin" ]] && sudo zpool import -a ${1} -N || sudo zpool import -a -N -R ${defaultMountPoint}
         pools=()
         mounts=()
         nameLength=""
