@@ -9,8 +9,9 @@
             group="users"
             ;;
         "Darwin")
-            defaultMountPoint="/Volumes/ZFS" 
+            defaultMountPoint="/Volumes" 
             zpoolLocation=$(which zpool)
+            group="staff"
             ;;
         *)
             defaultMountPoint="/mnt/ZFS" 
@@ -20,9 +21,11 @@
 
 [[ -e $zpoolLocation ]] && {
 
+
+    checkIfMountable() { [[ "${defaultMountPoint}/$1" == "$2" ]] && echo 1 || echo 0 ;}
     zpooli() {  
         [ ! -d $defaultMountPoint ] && { echo "$defaultMountPoint does not exist. Creating.."  sudo mkdir $defaultMountPoint }
-        sudo zpool import -a ${1} -N -R $defaultMountPoint 
+        sudo zpool import -a ${1} -N 
         pools=()
         mounts=()
         nameLength=""
@@ -46,7 +49,7 @@
         #for i in {1..${#pools[@]}};do echo "${pools[$i]} ${mounts[$i]}";done
         
         for (( i=1;i<=${#pools[@]};i++ )) ; do
-            if [[ "${defaultMountPoint}/${pools[$i]}" == "${mounts[$i]}" ]]; then
+            if [[ $(checkIfMountable "${pools[$i]}" "${mounts[$i]}") -eq 1 ]]; then
                 printf "Mounting %${nameLength}s to %s\n" ${pools[$i]} ${mounts[$i]}
                 sudo zfs mount ${pools[$i]}
                 sudo chown $(whoami) ${mounts[$i]}
