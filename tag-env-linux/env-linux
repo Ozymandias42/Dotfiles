@@ -1,1 +1,12 @@
 [[ $(lsblk|grep SD128GB) ]] && export SD128GB=/run/media/$(whoami)/SD128GB
+
+[[ $(cat /proc/version |grep SUSE) ]] && {
+    zypper-cleanup() {
+        thingsToClean=$(zypper pa --unneeded|tail -n+5|awk -F'|' '{print $3}')
+        if [[ ${#thingsToClean[@]} -ne 0 ]]; then 
+            echo ${thingsToClean[@]}|xargs sudo zypper rm -u 
+        else
+            echo "Nothing to cleanup"
+        fi
+    }
+}
