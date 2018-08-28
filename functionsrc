@@ -1,10 +1,1 @@
-haste() { a=$(cat); curl -X POST -s -d "$a" https://hastebin.com/documents | awk -F '"' '{print "https://hastebin.com/"$4}'; }
-
-zypper-cleanup() {
-    thingsToClean=$(zypper pa --unneeded|tail -n+5|awk -F'|' '{print $3}')
-    if [[ ${#thingsToClean[@]} -ne 0 ]]; then 
-        echo ${thingsToClean[@]}|xargs sudo zypper rm -u 
-    else
-        echo "Nothing to cleanup"
-    fi
-}
+haste() { a=$(cat); curl -X POST -s -d "$a" https://hastebin.com/documents | awk -F '"' '{print "https://hastebin.com/"$4}'; 
