@@ -38,7 +38,7 @@ setVariable() {
 setPath() { [ -d $1 ] && export PATH=$2:$PATH ; };
 
 setAlias() { 
-    [[ -x $2 ]] \
+    [[ -x ${3:-$2} ]] || [[ $(which ${3:-$2}) ]] \
     && alias $1="$2" \
     || { [[ $DEBUG -eq 0 ]] && echo "$2 is not installed" ; } 
 };
@@ -89,6 +89,7 @@ map() {
             [ -e $HOME/.env-linux ] \
             && {
                 source $HOME/.env-linux
+                map setAlias $linuxAliases
             }
             ;;
         "FreeBSD")
