@@ -1,3 +1,4 @@
+#!/bin/bash
 [[ $(lsblk|grep SD128GB) ]] && export SD128GB=/run/media/$(whoami)/SD128GB
 
 [[ $(cat /proc/version |grep SUSE) ]] && {
@@ -9,4 +10,5 @@
             echo "Nothing to cleanup"
         fi
     }
+    zypper-dup(){ yes r |sudo zypper dup --no-recommends ;}
 }
