@@ -11,4 +11,11 @@
         fi
     }
     zypper-dup(){ yes r |sudo zypper dup --no-recommends ;}
+    
+    btrfs-du(){ sudo btrfs filesystem du $@ ;}
+    btrfs-rm-pattern(){ rpm --query --recommends $1|xargs sudo zypper rm -u ; sudo zypper rm -u -t pattern $1 ;}
+    alias snapshot-du='sudo btrfs filesystem du -s /.snapshots'
 }
+
+linuxAliases=( )
+
