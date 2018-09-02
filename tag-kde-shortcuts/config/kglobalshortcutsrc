@@ -3,11 +3,11 @@ _k_friendly_name=System Settings
 switch-to-activity-58217e07-79fb-4c31-a2b9-322783a5985c=none,none,
 
 [KDE Keyboard Layout Switcher]
-Switch keyboard layout to Deutsch (Macintosh, ohne Akzenttasten)=none,none,Tastaturbelegung zu Deutsch (Macintosh\\, ohne Akzenttasten) umschalten
+Switch keyboard layout to Deutsch (Macintosh, ohne Akzenttasten)=none,none,Switch keyboard layout to Deutsch (Macintosh\\, ohne Akzenttasten)
 Switch keyboard layout to English (US)=none,none,Switch keyboard layout to English (US)
 Switch keyboard layout to EurKEY (US based layout with european letters)=none,none,Switch keyboard layout to EurKEY (US based layout with european letters)
 Switch keyboard layout to German (Macintosh, no dead keys)=none,none,Switch keyboard layout to German (Macintosh\\, no dead keys)
-Switch to Next Keyboard Layout=,Ctrl+Alt+K,Switch to Next Keyboard Layout
+Switch to Next Keyboard Layout=none,Ctrl+Alt+K,Switch to Next Keyboard Layout
 _k_friendly_name=KDE Daemon
 
 [kaccess]
@@ -27,12 +27,12 @@ display=Display\tMeta+P,Display\tMeta+P,Switch Display
 
 [khotkeys]
 _k_friendly_name=KDE Daemon
-{0683e8f7-2ccd-4ce5-a01a-92ed128343c6}=Meta+Print,none,Take Active Window Screenshot
-{60273cda-c601-4291-b837-8e9b56e2e46b}=Print,none,Start Screenshot Tool
-{782e95f0-6a34-4189-a4da-826e78d793dc}=Ctrl+Alt+T,none,Launch Konsole
-{787adbed-0dab-49ef-a7fd-a0de9a9e3aa8}=Shift+Print,none,Take Full Screen Screenshot
-{bf563220-cb2e-4336-8c09-74f4e1f66d9e}=Meta+Shift+Print,none,Take Rectangular Region Screenshot
+{26f11ed2-d211-459f-b00f-33201e6955bc}=,none,Take Full Screen Screenshot
+{6a527bed-8953-40ff-96fb-8401a5c3e3da}=,none,Take Active Window Screenshot
+{77c1eddc-ac7f-4995-aeab-43cf817417eb}=,none,Take Rectangular Region Screenshot
+{cfe7c98d-f394-4ab6-bbc8-8758a1ea5e44}=Alt+Return,none,Launch Konsole
 {d03619b6-9b3c-48cc-9d9c-a2aadb485550}=,none,Search
+{df31e95e-0547-483e-b779-51c5d639343f}=,none,Start Screenshot Tool
 
 [kmix]
 _k_friendly_name=Audio Volume
@@ -153,9 +153,9 @@ Window Move=none,none,Move Window
 Window No Border=Meta+Ctrl+Alt+H,none,Hide Window Border
 Window On All Desktops=none,none,Keep Window on All Desktops
 Window One Desktop Down=Ctrl+Alt+J,none,Window One Desktop Down
-Window One Desktop Up=Ctrl+Alt+K,none,Window One Desktop Up
+Window One Desktop Up=,none,Window One Desktop Up
 Window One Desktop to the Left=Ctrl+Alt+H,none,Window One Desktop to the Left
-Window One Desktop to the Right=Ctrl+Alt+L,none,Window One Desktop to the Right
+Window One Desktop to the Right=,none,Window One Desktop to the Right
 Window Operations Menu=Alt+F3,Alt+F3,Window Operations Menu
 Window Pack Down=Meta+Ctrl+J,none,Pack Window Down
 Window Pack Left=Meta+Ctrl+H,none,Pack Window to the Left
@@ -243,7 +243,8 @@ activate task manager entry 6=Meta+6,Meta+6,Activate Task Manager Entry 6
 activate task manager entry 7=Meta+7,Meta+7,Activate Task Manager Entry 7
 activate task manager entry 8=Meta+8,Meta+8,Activate Task Manager Entry 8
 activate task manager entry 9=Meta+9,Meta+9,Activate Task Manager Entry 9
-activate widget 42=Alt+F1,none,Activate Application Launcher Widget
+activate widget 42=,none,Activate Application Launcher Widget
+activate widget 5=Alt+F1,none,Activate Application Launcher Widget
 clear-history=none,none,Clear Clipboard History
 clipboard_action=Ctrl+Alt+X,Ctrl+Alt+X,Enable Clipboard Actions
 cycleNextAction=none,none,Next History Item

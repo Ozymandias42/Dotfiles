@@ -144,13 +144,13 @@ Size=32
 ColorScheme=Breeze Dark
 Name=Breeze Dark
 desktopFont=Noto Sans,10,-1,5,50,0,0,0,0,0,Regular
-font=San Francisco Display,10,-1,5,57,0,0,0,0,0,Medium
-menuFont=San Francisco Display,10,-1,5,57,0,0,0,0,0,Medium
+font=Noto Sans,10,-1,5,50,0,0,0,0,0,Regular
+menuFont=Noto Sans,10,-1,5,50,0,0,0,0,0,Regular
 shadeSortColumn=true
-smallestReadableFont=San Francisco Display,9,-1,5,63,0,0,0,0,0,Semibold
+smallestReadableFont=Noto Sans,10,-1,5,50,0,0,0,0,0,Regular
 taskbarFont=Noto Sans,10,-1,5,50,0,0,0,0,0,Regular
-toolBarFont=San Francisco Display,10,-1,5,57,0,0,0,0,0,Medium
-widgetStyle=breeze
+toolBarFont=Noto Sans,10,-1,5,50,0,0,0,0,0,Regular
+widgetStyle=Breeze
 
 [Icons]
 Theme=breeze-dark
