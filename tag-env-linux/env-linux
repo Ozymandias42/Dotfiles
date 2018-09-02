@@ -15,6 +15,7 @@
     btrfs-du(){ sudo btrfs filesystem du $@ ;}
     zypper-rm-pattern(){ rpm --query --recommends $1|xargs sudo zypper rm -u ; sudo zypper rm -u -t pattern $1 ;}
     alias snapshot-du='sudo btrfs filesystem du -s /.snapshots'
+    alias zypper='yes r|sudo zypper'
 }
 
 linuxAliases=( )
