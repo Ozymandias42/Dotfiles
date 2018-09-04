@@ -1,3 +1,4 @@
+#!/bin/bash
 
 #ZFS SPECIFIC STUFF
 
@@ -21,11 +22,9 @@
     esac
     export cfs="$defaultMountPoint"
 
-[[ -e $zpoolLocation ]] && {
-
 
     zpooli() {  
-        [ ! -d $defaultMountPoint ] && { echo "$defaultMountPoint does not exist. Creating.."  sudo mkdir $defaultMountPoint }
+        [ ! -d $defaultMountPoint ] && { echo $defaultMountPoint "does not exist. Creating.." ; sudo mkdir -p $defaultMountPoint ;}
         [[ "$PLATFORM" = "Darwin" ]] && sudo zpool import -a ${1} -N || sudo zpool import -a -N -R ${defaultMountPoint}
         pools=()
         mounts=()
@@ -57,7 +56,7 @@
                 sudo chgrp $group    ${mounts[$i]}
             fi
         done
-    } ; 
+    } 
     
-    alias zpoole="sudo zpool export -a" 
-}
+    alias zpoole="sudo zpool export -a" ;
+
