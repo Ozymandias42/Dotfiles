@@ -25,7 +25,7 @@
 
     zpooli() {  
         [ ! -d $defaultMountPoint ] && { echo $defaultMountPoint "does not exist. Creating.." ; sudo mkdir -p $defaultMountPoint ;}
-        [[ "$PLATFORM" = "Darwin" ]] && sudo zpool import -a ${1} -N || sudo zpool import -a -N -R ${defaultMountPoint}
+        [[ "$PLATFORM" = "Darwin" ]] && sudo zpool import -a ${1} -N || sudo zpool import -a ${1} -N -R ${defaultMountPoint}
         pools=()
         mounts=()
         nameLength=""
