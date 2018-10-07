@@ -91,6 +91,7 @@ map() {
             && {
                 source $HOME/.env-linux
                 map setAlias $linuxAliases
+                map setPath $linuxPaths
             }
             ;;
         "FreeBSD")

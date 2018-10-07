@@ -9,6 +9,9 @@ set mouse=a
 set expandtab
 set clipboard=unnamed
 
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+set list
+
 "Automatically watch changes
 set autoread
 colorscheme slate

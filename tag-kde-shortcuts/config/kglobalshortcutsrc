@@ -6,6 +6,7 @@ switch-to-activity-58217e07-79fb-4c31-a2b9-322783a5985c=none,none,
 Switch keyboard layout to Deutsch (Macintosh, ohne Akzenttasten)=none,none,Switch keyboard layout to Deutsch (Macintosh\\, ohne Akzenttasten)
 Switch keyboard layout to English (US)=none,none,Switch keyboard layout to English (US)
 Switch keyboard layout to EurKEY (US based layout with european letters)=none,none,Switch keyboard layout to EurKEY (US based layout with european letters)
+Switch keyboard layout to German (Macintosh)=none,none,Switch keyboard layout to German (Macintosh)
 Switch keyboard layout to German (Macintosh, no dead keys)=none,none,Switch keyboard layout to German (Macintosh\\, no dead keys)
 Switch to Next Keyboard Layout=none,Ctrl+Alt+K,Switch to Next Keyboard Layout
 _k_friendly_name=KDE Daemon
@@ -55,11 +56,11 @@ run command on clipboard contents=Alt+Shift+F2,Alt+Shift+F2,Run Command on clipb
 
 [ksmserver]
 Halt Without Confirmation=Ctrl+Alt+Shift+PgDown,none,Halt Without Confirmation
-Lock Session=\tScreensaver,Ctrl+Alt+L\tScreensaver,Lock Session
+Lock Session=Meta+L,Ctrl+Alt+L\tScreensaver,Lock Session
 Log Out=Ctrl+Alt+Del,none,Log Out
 Log Out Without Confirmation=Ctrl+Alt+Shift+Del,none,Log Out Without Confirmation
 Reboot Without Confirmation=Ctrl+Alt+Shift+PgUp,none,Reboot Without Confirmation
-_k_friendly_name=System Settings
+_k_friendly_name=ksmserver
 
 [kwin]
 Activate Window Demanding Attention=Ctrl+Alt+A,Ctrl+Alt+A,Activate Window Demanding Attention

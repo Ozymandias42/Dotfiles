@@ -144,13 +144,13 @@ Size=32
 ColorScheme=Breeze Dark
 Name=Breeze Dark
 desktopFont=Noto Sans,10,-1,5,50,0,0,0,0,0,Regular
-font=Noto Sans,10,-1,5,50,0,0,0,0,0,Regular
+font=SF Pro Display,10,-1,5,50,0,0,0,0,0,Regular
 menuFont=Noto Sans,10,-1,5,50,0,0,0,0,0,Regular
 shadeSortColumn=true
-smallestReadableFont=Noto Sans,10,-1,5,50,0,0,0,0,0,Regular
+smallestReadableFont=Noto Sans,10,-1,5,63,0,0,0,0,0,SemiBold
 taskbarFont=Noto Sans,10,-1,5,50,0,0,0,0,0,Regular
 toolBarFont=Noto Sans,10,-1,5,50,0,0,0,0,0,Regular
-widgetStyle=Breeze
+widgetStyle=breeze
 
 [Icons]
 Theme=breeze-dark
