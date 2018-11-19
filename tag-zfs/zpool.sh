@@ -56,6 +56,13 @@
                 sudo chgrp $group    ${mounts[$i]}
             fi
         done
+        [[ "$PLATFORM" = "Darwin" ]] && [[ -d /Volumes/ZShare/Nextcloud ]] && {
+            sudo chmod a="$(whoami) allow list,add_file,search,delete,add_subdirectory,delete_child,readattr,writeattr,readextattr,writeextattr,readsecurity,writesecurity,file_inherit,directory_inherit" /Volumes/ZShare/Nextcloud
+        }
+        [[ "$PLATFORM" = "Linux" ]] && [[ -d $defaultMountPoint/ZShare/Nextcloud ]] && {
+            sudo chown $(whoami) $defaultMountPoint/ZShare/Nextcloud
+            sudo chmod +rw $defaultMountPoint/ZShare/Nextcloud
+        }
     } 
     
     alias zpoole="sudo zpool export -a" ;
