@@ -11,13 +11,15 @@ linuxPaths=(/usr/local/bin@/usr/local/bin $HOME/.itch@$HOME/itch)
             echo "Nothing to cleanup"
         fi
     }
-    zypper-dup(){ yes r |sudo zypper dup --no-recommends ;}
+#    zypper-dup(){ yes r |sudo zypper dup --no-recommends ;}
     
     btrfs-du(){ sudo btrfs filesystem du $@ ;}
     zypper-rm-pattern(){ rpm --query --recommends $1|xargs sudo zypper rm -u ; sudo zypper rm -u -t pattern $1 ;}
     alias snapshot-du='sudo btrfs filesystem du -s /.snapshots'
-    alias zypper='yes r|sudo zypper'
+    #alias zypper='yes r|sudo zypper'
 }
 
 linuxAliases=( )
 
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_RUNTIME_DIR=/run/user/$(id -u)

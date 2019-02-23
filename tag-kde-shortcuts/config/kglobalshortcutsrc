@@ -1,11 +1,13 @@
 [ActivityManager]
-_k_friendly_name=System Settings
+_k_friendly_name=Activity Manager
 switch-to-activity-58217e07-79fb-4c31-a2b9-322783a5985c=none,none,
+switch-to-activity-c58b523b-3392-4219-8c0a-5423196ed24f=none,none,Switch to activity "Default"
 
 [KDE Keyboard Layout Switcher]
 Switch keyboard layout to Deutsch (Macintosh, ohne Akzenttasten)=none,none,Switch keyboard layout to Deutsch (Macintosh\\, ohne Akzenttasten)
 Switch keyboard layout to English (US)=none,none,Switch keyboard layout to English (US)
 Switch keyboard layout to EurKEY (US based layout with european letters)=none,none,Switch keyboard layout to EurKEY (US based layout with european letters)
+Switch keyboard layout to German=none,none,Switch keyboard layout to German
 Switch keyboard layout to German (Macintosh)=none,none,Switch keyboard layout to German (Macintosh)
 Switch keyboard layout to German (Macintosh, no dead keys)=none,none,Switch keyboard layout to German (Macintosh\\, no dead keys)
 Switch to Next Keyboard Layout=none,Ctrl+Alt+K,Switch to Next Keyboard Layout
@@ -28,12 +30,12 @@ display=Display\tMeta+P,Display\tMeta+P,Switch Display
 
 [khotkeys]
 _k_friendly_name=KDE Daemon
-{26f11ed2-d211-459f-b00f-33201e6955bc}=,none,Take Full Screen Screenshot
-{6a527bed-8953-40ff-96fb-8401a5c3e3da}=,none,Take Active Window Screenshot
-{77c1eddc-ac7f-4995-aeab-43cf817417eb}=,none,Take Rectangular Region Screenshot
-{cfe7c98d-f394-4ab6-bbc8-8758a1ea5e44}=Alt+Return,none,Launch Konsole
+{39ac47ca-45b0-4c1f-a885-0e60c51d4b8a}=Print,none,Start Screenshot Tool
+{4b78ce23-ad89-4864-936a-224917e3bc59}=Ctrl+Alt+T,none,Launch Konsole
+{76bbbe30-3019-41a8-98ee-33049a42e445}=Shift+Print,none,Take Full Screen Screenshot
+{b05af586-d65b-40e7-990e-4152ecb0dad8}=Meta+Print,none,Take Active Window Screenshot
+{cd12071d-9ecf-421c-a5e2-4257d437c00b}=Meta+Shift+Print,none,Take Rectangular Region Screenshot
 {d03619b6-9b3c-48cc-9d9c-a2aadb485550}=,none,Search
-{df31e95e-0547-483e-b779-51c5d639343f}=,none,Start Screenshot Tool
 
 [kmix]
 _k_friendly_name=Audio Volume
@@ -244,6 +246,7 @@ activate task manager entry 6=Meta+6,Meta+6,Activate Task Manager Entry 6
 activate task manager entry 7=Meta+7,Meta+7,Activate Task Manager Entry 7
 activate task manager entry 8=Meta+8,Meta+8,Activate Task Manager Entry 8
 activate task manager entry 9=Meta+9,Meta+9,Activate Task Manager Entry 9
+activate widget 4=,none,Activate Application Launcher Widget
 activate widget 42=,none,Activate Application Launcher Widget
 activate widget 5=Alt+F1,none,Activate Application Launcher Widget
 clear-history=none,none,Clear Clipboard History

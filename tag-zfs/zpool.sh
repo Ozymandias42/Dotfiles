@@ -52,14 +52,18 @@
             if [[ $(checkIfMountable "${pools[$i]}" "${mounts[$i]}") -eq 1 ]]; then
                 printf "Mounting %${nameLength}s to %s\n" ${pools[$i]} ${mounts[$i]}
                 sudo zfs mount ${pools[$i]}
-                sudo chown $(whoami) ${mounts[$i]}
-                sudo chgrp $group    ${mounts[$i]}
+                #sudo chown $(whoami) ${mounts[$i]}
+                #sudo chgrp $group    ${mounts[$i]}
             fi
         done
-        [[ "$PLATFORM" = "Darwin" ]] && [[ -d /Volumes/ZShare/Nextcloud ]] && {
-            sudo chmod -E <<<"$(whoami) allow list,add_file,search,delete,add_subdirectory,delete_child,readattr,writeattr,readextattr,writeextattr,readsecurity,writesecurity,file_inherit,directory_inherit" /Volumes/ZShare/Nextcloud
-        }
+        #[[ "$PLATFORM" = "Darwin" ]] && [[ -d /Volumes/ZShare/Nextcloud ]] && {
+            #sudo chmod -R -E <<<"$(whoami) allow list,add_file,search,delete,add_subdirectory,delete_child,readattr,writeattr,readextattr,writeextattr,readsecurity,writesecurity,file_inherit,directory_inherit" /Volumes/ZShare/Nextcloud 
+        #; }
+
+        #[[ "$PLATFORM" = "Linux" ]] && [[ -d $defaultMountPoint/ZShare/Nextcloud ]] && {
+#            find $defaultMountPoint/ZShare/Nextcloud \! -uid $(id -u) -print | xargs -I% sudo chown -R $(id -u) % 
+        #}
     } 
     
-    alias zpoole="sudo zpool export -a" ;
+    alias zpoole="sudo zpool export -a" 
 

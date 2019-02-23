@@ -105,4 +105,14 @@ map() {
 ####
 #STUFF TO COMPLEX TO PROCESS IN BATCH. I.E. CUSTOM FUNCTIONS
 ####
+
+#if [ ! -S ~/.ssh/ssh_auth_sock ]; then
+#  eval `ssh-agent`
+#  ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
+#  ssh-add ~/.ssh/id_rsa
+#fi
+#export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
+#ssh-add -l > /dev/null || ssh-add
+
+
 [ -e $HOME/.zpool.sh ] && source $HOME/.zpool.sh

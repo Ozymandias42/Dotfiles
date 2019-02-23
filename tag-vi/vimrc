@@ -1,12 +1,12 @@
 syntax on
 set number
 set tabstop=4
-set foldmethod=manual   
+set foldmethod=syntax 
 set foldnestmax=10
 "set nofoldenable
 set foldlevel=2
 set mouse=a
-set expandtab
+"set expandtab
 set clipboard=unnamed
 
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
@@ -22,3 +22,9 @@ set lbr!
 "Key-bind to copy and paste to and from macOS clipboard
 vnoremap  <C-c> :w !pbcopy<CR><CR>
 noremap <C-p> :r !pbpaste<CR><CR>
+
+augroup remember_folds
+  autocmd!
+  autocmd BufWinLeave * mkview
+  autocmd BufWinEnter * silent! loadview
+augroup END
