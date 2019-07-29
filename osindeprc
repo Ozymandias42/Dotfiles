@@ -8,16 +8,22 @@ PLATFORM=$(uname)
 inPath() { 
 #returns 0 if true, else 1
     #Create array from Path
-    tmpPaths=( $(echo $PATH|tr ':' ' ') )
+    local tmpPaths=( $(echo $PATH|tr ':' ' ') )
     #echo $tmpPaths
-    occurences=0
+    local occurences=0
     for i in ${tmpPaths[@]}; do
-        [[ $1 == $i ]] && occurences=$((occurences+1))
-        [[ $occurences -eq 1 ]] && ret=0; break
+        if [[ $1 = $i ]]; then 
+			occurences=$((occurences+1)) 
+		fi
+        if [[ $occurences -ne 0 ]]; then 
+			ret=0; break ; 
+		fi
     done
     
     [[ $ret -eq 0 ]] && echo $ret || echo 1
 };
+
+removeDoublettesInPath() { export PATH=$(echo $PATH|tr ':' '\n'|uniq|tr '\n' ':') ; }
 
 setVariable() {
     #USAGE Expl. f. setVariable $1 $2 $3
@@ -92,6 +98,7 @@ map() {
                 source $HOME/.env-linux
                 map setAlias $linuxAliases
                 map setPath $linuxPaths
+                removeDoublettesInPath
             }
             ;;
         "FreeBSD")
