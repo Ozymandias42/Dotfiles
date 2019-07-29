@@ -2,22 +2,55 @@
 linuxPaths=(/usr/local/bin@/usr/local/bin $HOME/.itch@$HOME/itch)
 [[ $(lsblk|grep SD128GB) ]] && export SD128GB=/run/media/$(whoami)/SD128GB
 
-[[ $(cat /proc/version |grep SUSE) ]] && {
+#LINUX SPECIFIC FUNCTIONS
+haste() { 
+    a=$(cat); 
+    curl -X POST -s -d "$a" https://hastebin.com/documents \
+    | awk -F '"' '{print "https://hastebin.com/"$4}'; 
+}
+
+#IF DISTRO EQUALS OPENSUSE DEFINE THE FOLLOWING CONVIENENCE FUNCTIONS
+if [[ $(cat /proc/version |grep SUSE) ]]; then
     zypper-cleanup() {
         thingsToClean=$(zypper pa --unneeded|tail -n+5|awk -F'|' '{print $3}')
-        if [[ ${#thingsToClean[@]} -ne 0 ]]; then 
+        if [[ ${#thigsToClean[@]} -ne 0 ]]; then 
             echo ${thingsToClean[@]}|xargs sudo zypper rm -u 
         else
             echo "Nothing to cleanup"
         fi
     }
-#    zypper-dup(){ yes r |sudo zypper dup --no-recommends ;}
     
-    btrfs-du(){ sudo btrfs filesystem du $@ ;}
-    zypper-rm-pattern(){ rpm --query --recommends $1|xargs sudo zypper rm -u ; sudo zypper rm -u -t pattern $1 ;}
-    alias snapshot-du='sudo btrfs filesystem du -s /.snapshots'
-    #alias zypper='yes r|sudo zypper'
-}
+	btrfs-du(){ sudo btrfs filesystem du $@ ;}
+	
+	zypper-rm-pattern(){ 
+        rpm --query --recommends $1 \
+        | xargs \
+            sudo zypper rm -u ; \ 
+
+        sudo zypper rm -u -t pattern $1 ;
+	}
+
+    zypper-autoremove() {
+	packages=($(zypper pa --unneeded --orphaned --installed-only|tail -n +5|awk '{print $5}'))
+	length=${#packages[@]}
+	
+        if [ $length -ge 0 ]; then
+			cat <<-EOF
+			The following packages will be removed:
+			${packages[@]}^
+
+			EOF
+		    read -p 'Proceed [y|n]: ' answer
+		    if [ "$answer" == "y" ]; then
+			    echo ${packages[@]} | xargs -I% -n $length sudo zypper rm -u %
+		    fi
+	    else
+		    echo "No orphaned or unneeded packages to remove"
+	    fi
+    }
+    
+	alias snapshot-du='sudo btrfs filesystem du -s /.snapshots'
+fi
 
 linuxAliases=( )
 
