@@ -31,11 +31,10 @@ setVariable() {
     #via ${3:-${2}} #NOTE: ${var:-x} substitutes x for var if var unset OR empty.
     #USAGE Expl. f. setVariable $1 $2
     #setVariable EDITOR vi //$3 does not exist so it will be checked for $2
-    
     which ${3:-${2}} &>/dev/null
     [[ $? -eq 0 ]] \
-    && export $1=$2 \
-    || { [[ $DEBUG -eq 0 ]] && echo "Problem with export $1=$2\n$2 not installed" ; }
+    && export ${1}=${2} \
+    || { [[ $DEBUG -eq 0 ]] && echo "Problem with export ${1}=${2}\n${3:${2}} not installed" ; }
     
 } ;
 
@@ -98,6 +97,7 @@ map() {
                 source $HOME/.env-linux
                 map setAlias $linuxAliases
                 map setPath $linuxPaths
+                map setVariable $linuxVariables
                 removeDoublettesInPath
             }
             ;;
