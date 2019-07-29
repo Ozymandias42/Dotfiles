@@ -62,7 +62,6 @@ map() {
     done    
 }
 
-
 ####
 #OS INDEPENDENT STUFF
 ####
@@ -76,7 +75,7 @@ map() {
 } #|| echo "$HOME/.env does not exist. Is this intended?" ;
 
 # set PATH so it includes user's private bin if it exists.
-#NOTE: inPath is required since it seems to be set from somewhere else on some systems.
+#NOTE: inPath() is required since it seems to be set from somewhere else on some systems.
 [[ -d "$HOME/bin" ]] && [[ ! $(inPath "$HOME/bin") -eq 0 ]] && PATH="$HOME/bin:$PATH" 
 
 
@@ -85,7 +84,7 @@ map() {
         "Darwin") 
             [ -e $HOME/.env-mac ] \
             && {
-                source $HOME/.env-mac 
+                source $HOME/.env-mac
                 map setPath $macPaths
                 map setAlias $macAliases
                 map setVariable $macVariables
@@ -129,4 +128,4 @@ unset map
 #ssh-add -l > /dev/null || ssh-add
 
 
-[ -e $HOME/.zpool.sh ] && source $HOME/.zpool.sh
+#[ -e $HOME/.zpool.sh ] && source $HOME/.zpool.sh
