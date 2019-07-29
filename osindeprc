@@ -107,7 +107,14 @@ map() {
             ;;
     esac
 
-    [[ -e $HOME/.functionsrc ]] && source $HOME/.functionsrc
+#Cleanup Functions so they don't remain globally available after rc-stuff is done.	
+unset setAlias
+unset setPath
+unset setVariable
+unset setEvals
+unset inPath
+unset removeDoublettesInPath
+unset map
 
 ####
 #STUFF TO COMPLEX TO PROCESS IN BATCH. I.E. CUSTOM FUNCTIONS
