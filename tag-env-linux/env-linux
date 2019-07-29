@@ -1,5 +1,23 @@
 #!/bin/bash
-linuxPaths=(/usr/local/bin@/usr/local/bin $HOME/.itch@$HOME/itch)
+
+#LINUX SPECIFIC GLOBAL VARIABLES
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_RUNTIME_DIR=/run/user/$(id -u)
+export NEXTCLOUD=/run/media/$(whoami)/Share/Nextcloud
+
+#LINUX SPECIFIC GLOBAL VARIABLES WITH CHECKS FOR EXISTANCE
+linuxVariables=( #Array item format: VARNAME@VALUE[@COMMAND2CHECK4]
+    "EDITOR@nvim@nvim"
+    "VISUAL@nvim@nvim"
+    )
+#LINUX SPECIFIC ALIASES 
+
+alias pwhs="pwsh --nologo"
+linuxAliases=(  )
+
+#LINUX SPECIFIC PATHS TO ADD TO $PATH WITH CHECKS FOR EXISTANCE
+linuxPaths=()
+
 [[ $(lsblk|grep SD128GB) ]] && export SD128GB=/run/media/$(whoami)/SD128GB
 
 #LINUX SPECIFIC FUNCTIONS
@@ -52,7 +70,4 @@ if [[ $(cat /proc/version |grep SUSE) ]]; then
 	alias snapshot-du='sudo btrfs filesystem du -s /.snapshots'
 fi
 
-linuxAliases=( )
 
-export XDG_CONFIG_HOME=$HOME/.config
-export XDG_RUNTIME_DIR=/run/user/$(id -u)
