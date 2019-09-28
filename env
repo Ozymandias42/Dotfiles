@@ -26,7 +26,7 @@ alias cp='cp -iv'
 alias mv='mv -iv'
 alias rm='rm -i'
 alias ln='ln -i'
-alias ls='ls -a --color'
+alias ls='ls -a' 
 alias grep='grep --color=auto'
 alias did="vim +'normal Go' +'r!date' +'normal Go' +'normal i -  ' ~/did.txt"
 alias jvim="vim +'%!python -m json.tool' +'setlocal syntax=json' +'setlocal foldmethod=syntax'"
