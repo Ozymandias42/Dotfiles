@@ -126,6 +126,6 @@ unset map
 #fi
 #export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
 #ssh-add -l > /dev/null || ssh-add
-
-
+SSH_ASKPASS=/usr/lib/ssh/ksshaskpass 
+ssh-add $HOME/.ssh/id_rsa $HOME/.ssh/id_work_thm </dev/null
 #[ -e $HOME/.zpool.sh ] && source $HOME/.zpool.sh
