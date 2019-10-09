@@ -13,7 +13,7 @@
 #export FTP_PROXY=192.168.1.5:3128
 
 #LOCALES
-export LC_ALL="de_DE.UTF-8"
+#export LC_ALL="de_DE.UTF-8"
 
 #NOTE: no export because these are for use in setIfCmdExist function.
 export EDITOR=vi
