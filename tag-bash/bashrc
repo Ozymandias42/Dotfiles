@@ -32,6 +32,7 @@ export PS1="\[\033[38;5;39m\]\u@\h\[$(tput sgr0)\]\[\033[38;5;15m\]:\w\n\[$(tput
 [ -e $HOME/.osindeprc ] && . $HOME/.osindeprc
 
 HISTSIZE=2000
+PROMPT_DIRTRIM=3
 COMP_TYPE=%
 shopt -s cdable_vars direxpand cmdhist histappend 
 set -o vi

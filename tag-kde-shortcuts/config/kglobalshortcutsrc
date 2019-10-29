@@ -54,11 +54,7 @@ display=Display\tMeta+P,Display\tMeta+P,Switch Display
 
 [khotkeys]
 _k_friendly_name=KDE Daemon
-{39ac47ca-45b0-4c1f-a885-0e60c51d4b8a}=Print,none,Start Screenshot Tool
 {4b78ce23-ad89-4864-936a-224917e3bc59}=Ctrl+Alt+T,none,Launch Konsole
-{76bbbe30-3019-41a8-98ee-33049a42e445}=Shift+Print,none,Take Full Screen Screenshot
-{b05af586-d65b-40e7-990e-4152ecb0dad8}=Meta+Print,none,Take Active Window Screenshot
-{cd12071d-9ecf-421c-a5e2-4257d437c00b}=Meta+Shift+Print,none,Take Rectangular Region Screenshot
 {d03619b6-9b3c-48cc-9d9c-a2aadb485550}=,none,Search
 
 [kmix]
@@ -75,10 +71,10 @@ _k_friendly_name=Konversation
 next_active_tab=none,none,Next Active Tab
 toggle_mainwindow_visibility=none,none,Show/Hide Konversation
 
-[krunner]
-_k_friendly_name=Run Command
-run command=Alt+Space\tMeta+Space\tSearch,Alt+Space,Run Command
-run command on clipboard contents=Alt+Shift+F2,Alt+Shift+F2,Run Command on clipboard contents
+[krunner.desktop]
+RunClipboard=Alt+Shift+F2,Alt+Shift+F2,Run command on clipboard contents
+_k_friendly_name=KRunner
+_launch=Alt+Space\tMeta+Space\tSearch,Alt+Space\tAlt+F2\tMeta+Space\tSearch,KRunner
 
 [ksmserver]
 Halt Without Confirmation=Ctrl+Alt+Shift+PgDown,none,Halt Without Confirmation
@@ -97,9 +93,9 @@ ExposeClass=Ctrl+F7,Ctrl+F7,Toggle Present Windows (Window class)
 FlipSwitchAll=none,none,Toggle Flip Switch (All desktops)
 FlipSwitchCurrent=none,none,Toggle Flip Switch (Current desktop)
 Increase Opacity=none,none,Increase Opacity of Active Window by 5 %
-Invert Screen Colors=none,none,Invert Screen Colors
+Invert Screen Colors=none,none,Invert Screen Colours
 Kill Window=Ctrl+Alt+Esc,Ctrl+Alt+Esc,Kill Window
-MoveMouseToCenter=Meta+F6,Meta+F6,Move Mouse to Center
+MoveMouseToCenter=Meta+F6,Meta+F6,Move Mouse to Centre
 MoveMouseToFocus=Meta+F5,Meta+F5,Move Mouse to Focus
 MoveZoomDown=,none,Move Zoomed Area Downwards
 MoveZoomLeft=,none,Move Zoomed Area to Left
@@ -150,6 +146,7 @@ Switch to Screen 4=none,none,Switch to Screen 4
 Switch to Screen 5=none,none,Switch to Screen 5
 Switch to Screen 6=none,none,Switch to Screen 6
 Switch to Screen 7=none,none,Switch to Screen 7
+Toggle Night Color=none,none,Toggle Night Color
 Toggle Window Raise/Lower=none,none,Toggle Window Raise/Lower
 ToggleCurrentThumbnail=Meta+Ctrl+Alt+T,Meta+Ctrl+T,Toggle Thumbnail for Current Window
 Walk Through Desktop List=none,none,Walk Through Desktop List
@@ -173,10 +170,10 @@ Window Fullscreen=Meta+F,none,Make Window Fullscreen
 Window Grow Horizontal=Meta+Alt+L,none,Pack Grow Window Horizontally
 Window Grow Vertical=Meta+Alt+K,none,Pack Grow Window Vertically
 Window Lower=none,none,Lower Window
-Window Maximize=Meta+PgUp,Meta+PgUp,Maximize Window
-Window Maximize Horizontal=none,none,Maximize Window Horizontally
-Window Maximize Vertical=none,none,Maximize Window Vertically
-Window Minimize=Meta+PgDown,Meta+PgDown,Minimize Window
+Window Maximize=Meta+PgUp,Meta+PgUp,Maximise Window
+Window Maximize Horizontal=none,none,Maximise Window Horizontally
+Window Maximize Vertical=none,none,Maximise Window Vertically
+Window Minimize=Meta+PgDown,Meta+PgDown,Minimise Window
 Window Move=none,none,Move Window
 Window No Border=Meta+Ctrl+Alt+H,none,Hide Window Border
 Window On All Desktops=none,none,Keep Window on All Desktops
@@ -248,6 +245,18 @@ playpausemedia=Media Play,Media Play,Play/Pause media playback
 previousmedia=Media Previous,Media Previous,Media playback previous
 stopmedia=Media Stop,Media Stop,Stop media playback
 
+[org.kde.dolphin.desktop]
+_k_friendly_name=Dolphin
+_launch=Meta+E,Meta+E,Dolphin
+
+[org.kde.spectacle.desktop]
+ActiveWindowScreenShot=Meta+Print,Meta+Print,Capture Active Window
+CurrentMonitorScreenShot=,none,Capture Current Monitor
+FullScreenScreenShot=Shift+Print,Shift+Print,Capture Entire Desktop
+RectangularRegionScreenShot=Meta+Shift+Print,Meta+Shift+Print,Capture Rectangular Region
+_k_friendly_name=Spectacle
+_launch=Print,Print,Launch Spectacle
+
 [org_kde_powerdevil]
 Decrease Keyboard Brightness=Keyboard Brightness Down,Keyboard Brightness Down,Decrease Keyboard Brightness
 Decrease Screen Brightness=Monitor Brightness Down,Monitor Brightness Down,Decrease Screen Brightness
@@ -257,6 +266,7 @@ Increase Screen Brightness=Monitor Brightness Up,Monitor Brightness Up,Increase 
 PowerOff=Power Off,Power Off,Power Off
 Sleep=Sleep,Sleep,Suspend
 Toggle Keyboard Backlight=Keyboard Light On/Off,Keyboard Light On/Off,Toggle Keyboard Backlight
+Turn Off Screen=none,none,Turn Off Screen
 _k_friendly_name=Power Management
 
 [plasmashell]
@@ -283,7 +293,7 @@ edit_clipboard=none,none,Edit Contents...
 manage activities=Meta+Q,Meta+Q,Activities...
 next activity=,none,Walk through activities
 previous activity=Meta+Shift+Tab,none,Walk through activities (Reverse)
-repeat_action=Ctrl+Alt+R,Ctrl+Alt+R,Manually Invoke Action on Current Clipboard
+repeat_action=none,Ctrl+Alt+R,Manually Invoke Action on Current Clipboard
 show dashboard=Ctrl+F12,Ctrl+F12,Show Desktop
 show-barcode=none,none,Show Barcode...
 show-on-mouse-pos=none,none,Open Klipper at Mouse Position

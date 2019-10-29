@@ -4,6 +4,7 @@
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_RUNTIME_DIR=/run/user/$(id -u)
 export NEXTCLOUD=/run/media/$(whoami)/Share/Nextcloud
+export SHARE=/run/media/$(whoami)/Share
 
 #LINUX SPECIFIC GLOBAL VARIABLES WITH CHECKS FOR EXISTANCE
 linuxVariables=( #Array item format: VARNAME@VALUE[@COMMAND2CHECK4]
