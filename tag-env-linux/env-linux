@@ -6,6 +6,9 @@ export XDG_RUNTIME_DIR=/run/user/$(id -u)
 export NEXTCLOUD=/run/media/$(whoami)/Share/Nextcloud
 export SHARE=/run/media/$(whoami)/Share
 
+export PATH="/home/fabian/.config/guix/current/bin${PATH:+:}$PATH"
+export GUIX_LOCPATH="$HOME/.guix-profile/lib/locale"
+
 #LINUX SPECIFIC GLOBAL VARIABLES WITH CHECKS FOR EXISTANCE
 linuxVariables=( #Array item format: VARNAME@VALUE[@COMMAND2CHECK4]
     "EDITOR@nvim@nvim"
