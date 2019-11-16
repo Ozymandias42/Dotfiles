@@ -33,6 +33,7 @@ export PS1="\[\033[38;5;39m\]\u@\h\[$(tput sgr0)\]\[\033[38;5;15m\]:\w\n\[$(tput
 
 HISTSIZE=2000
 COMP_TYPE=%
+PROMPT_DIRTRIM=3
 shopt -s cdable_vars direxpand cmdhist histappend 
 set -o vi
 #set show-mode-in-prompt on
