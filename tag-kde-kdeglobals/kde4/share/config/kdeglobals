@@ -103,11 +103,16 @@ ForegroundPositive=39,174,96
 ForegroundVisited=127,140,141
 
 [General]
+BrowserApplication[$e]=firefox.desktop
 ColorScheme=Breeze Dark
 Name[en_GB]=Breeze Dark
 Name=Breeze Dark
+XftHintStyle=hintslight
+XftSubPixel=rgb
+dbfile=/home/fabian/.mozilla/firefox/015gjb68.default/places.sqlite
 desktopFont=Noto Sans,10,-1,5,50,0,0,0,0,0,Regular
-font=SF Pro Display,10,-1,5,50,0,0,0,0,0,Regular
+fixed=Source Code Pro,10,-1,5,57,0,0,0,0,0,Medium
+font=Noto Sans,10,-1,5,57,0,0,0,0,0,Medium
 menuFont=Noto Sans,10,-1,5,50,0,0,0,0,0,Regular
 shadeSortColumn=true
 smallestReadableFont=Noto Sans,10,-1,5,63,0,0,0,0,0,SemiBold
