@@ -4,14 +4,10 @@
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_RUNTIME_DIR=/run/user/$(id -u)
 export NEXTCLOUD=/run/media/$(whoami)/Share/Nextcloud
-<<<<<<< HEAD
 export SHARE=/run/media/$(whoami)/Share
 
-export PATH="/home/fabian/.config/guix/current/bin${PATH:+:}$PATH"
-=======
 export PATH="$HOME/.config/guix/current/bin${PATH:+:}$PATH"
 export GUIX_PROFILE="/home/fabian/.guix-profile"
->>>>>>> f684e0bea32db3eeea7b186393b05a8e76d79ee2
 export GUIX_LOCPATH="$HOME/.guix-profile/lib/locale"
 
 #LINUX SPECIFIC GLOBAL VARIABLES WITH CHECKS FOR EXISTANCE
